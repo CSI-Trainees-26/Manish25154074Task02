@@ -1,50 +1,89 @@
 *{
     box-sizing: border-box;
-    COLOR:WHITE;
+    COLOR:black;
 }
 body{
     margin: 0;
     padding: 0;
     background-color:#141414;
     width: 95%;
-    border: 2px solid red;
-    margin: auto;
+    margin: auto ;
     height: 100vh;   
     /* width: 100vw; */
     position:relative ;
 }
 #side_bar{
+    background-color: #A4B28B;
     display: flex;
     flex-direction: column;
     width:20%;
     height: 100vh;
     margin: 0;
     padding: 0;
-    border: 2px solid red;
+    z-index: 1000;
+    border-right: 2px solid #141414;
+}
+.username h3{
+    text-align: center;
+    margin: 0;
+}
+.username hr{
+    border:none;
+    border: 1px solid #141414;
+    width: 80%;
+}
+.pfp img{
+    width: 100%;
 }
 .pfp{
+    overflow: hidden;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 2rem auto;
-    border:2px solid aqua;
+    border:3px solid black;
 }
 .nav_section{
+    text-transform: capitalize;
+    margin-left: 0.5rem;
     
-    margin: 2rem;
 }
-.dtp{
-    margin: 1.5rem;
+.dtp1 a,.dtp2 a,.dtp3 a,.dtp4 a,.dtp5 a,.dtp6 a,.dtp7 a,.dtp8 a{
+    text-decoration:none;
+    font-size: 1.2rem;
 }
+.dtp1,.dtp2,.dtp3,.dtp4,.dtp5,.dtp6,.dtp7,.dtp8{
+    padding: 0.4rem;
+    
+    border-radius:5px;
+    margin: 1rem;
+    transition: transform 0.3s ease;
+}
+.dtp1:hover,.dtp2:hover,.dtp3:hover,.dtp4:hover,.dtp5:hover,.dtp6:hover,.dtp7:hover,.dtp8:hover{
+    background-color:#b6c996;
+    transform:translateY(-2px);
+    border:1px solid black;
+}
+
 #header{
     width:80%;
     height: 7%;
-    border:2px solid aqua;
     position: absolute;
     top:0;
     left:20%;
     display: flex;
     justify-content: space-between;
+    z-index: 1000;
+    background-color: #8f9d71;
+    border-bottom:2px solid #141414;
+}
+.srch img{
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    position: absolute;
+    top:-70%;;
+    left:85%;
 }
 .txt,.srch{
     margin: 1rem;
@@ -52,22 +91,31 @@ body{
 .txt1{
     color:aqua
 }
+.txt2{
+    color:whitesmoke
+}
 #main_container{
-    border: 2px solid blue;
     width: 80%;
     position: absolute;
     top:7%;
     left:20%;
     height: 93%;
-    overflow-y: auto;
-    scrollbar-width:thin;
+    background-color: #b6c996;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    
 }
 .section{
+    background-color: #b6c996;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid ;
+    border: none;
 }
+
+
 .motivation,.date{
     margin: 0 1rem;
 }
@@ -75,19 +123,34 @@ body{
     align-self: first baseline;
 }
 .name{
-    margin: 0.7rem;
+    background-color: #b6c996;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
 }
 .motivation{
     width: 60%;
 }
 .cards{
-    margin: 1rem;
+    margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap:2rem;
-    
+    overflow-y:scroll;
+    scroll-behavior: smooth;
+    scrollbar-width:auto;
+    height: 69%;
+    z-index: -1;
 }
 .c1{
     height: 20rem;
-    border: 1px solid red;
+    overflow: hidden;
+    border-radius: 50px;
+}
+.c1 img{
+    width:100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.c1 img:hover{
+    transform:scale(1.2);
+   
 }
