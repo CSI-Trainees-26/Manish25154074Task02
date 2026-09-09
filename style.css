@@ -131,7 +131,6 @@ body{
 .c1 {
     width: 90%;
     margin: auto;
-    min-height: 200px;
     background-color: aliceblue;
     padding:1rem ;
     border-radius: 40px;
@@ -143,7 +142,7 @@ body{
 .c1 h3{
     padding-left: 0.7rem;
 }
-.task_list{
+.pending_list,.habit_pending_list{
     background-color:aliceblue;
     width: 90%;
 }
@@ -152,7 +151,7 @@ body{
     margin-top: 0.6rem;
     margin-bottom: 0;
 }
-.pc_box{
+.pc_box,.habit_list{
     display: flex;
     gap:4rem;
     padding-left: 2rem;
