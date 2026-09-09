@@ -9,7 +9,7 @@ body{
     width: 95%;
     margin: auto ;
     height: 100vh;   
-    /* width: 100vw; */
+    width: 80vw;
     position:relative ;
 }
 #side_bar{
@@ -37,8 +37,8 @@ body{
 }
 .pfp{
     overflow: hidden;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 2rem auto;
     border:3px solid black;
@@ -73,18 +73,10 @@ body{
     left:20%;
     display: flex;
     justify-content: space-between;
-    z-index: 1000;
     background-color: #8f9d71;
     border-bottom:2px solid #141414;
 }
-.srch img{
-    margin: 0;
-    padding: 0;
-    width: 10%;
-    position: absolute;
-    top:-70%;;
-    left:85%;
-}
+
 .txt,.srch{
     margin: 1rem;
 }
@@ -101,11 +93,6 @@ body{
     left:20%;
     height: 93%;
     background-color: #b6c996;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 1;
-    
 }
 .section{
     background-color: #b6c996;
@@ -131,26 +118,45 @@ body{
 }
 .cards{
     margin: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    display: flex;
+    flex-direction: column;
     gap:2rem;
-    overflow-y:scroll;
+    overflow-y:auto;
     scroll-behavior: smooth;
     scrollbar-width:auto;
-    height: 69%;
-    z-index: -1;
+    height: 70%;
+    padding-top: 0.5rem;
+
 }
-.c1{
-    height: 20rem;
-    overflow: hidden;
-    border-radius: 50px;
-}
-.c1 img{
-    width:100%;
-    height: 100%;
+.c1 {
+    width: 90%;
+    margin: auto;
+    min-height: 200px;
+    background-color: aliceblue;
+    padding:1rem ;
+    border-radius: 40px;
     transition: transform 0.3s ease;
 }
-.c1 img:hover{
-    transform:scale(1.2);
-   
+.c1:hover{
+    transform: translateY(-2px);
+}
+.c1 h3{
+    padding-left: 0.7rem;
+}
+.task_list{
+    background-color:aliceblue;
+    width: 90%;
+}
+.cards h4{
+    padding: 0;
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+}
+.pc_box{
+    display: flex;
+    gap:4rem;
+    padding-left: 2rem;
+}
+.pending ,.completed{
+    width:300px;
 }
