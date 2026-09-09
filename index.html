@@ -11,12 +11,11 @@
         <div class="pfp"><img src="https://i.pinimg.com/1200x/2f/3f/02/2f3f0210ddd06dcb863a689d93e99345.jpg"></div>
         <div class="username"><h3>Manish_Kumar13</h3><hr></div>
         <div class="nav_section">
-            <div class="dtp1"><a href="#" >daily task progress</a></div>
-            <div class="dtp2"><a href="#" >habit completion progress</a></div>
-            <div class="dtp3"><a href="#" >water intake</a></div>
-            <div class="dtp4"><a href="#" >calories intake</a></div>
-            <div class="dtp5"><a href="#" >sleep hours</a></div>
-            <div class="dtp6"><a href="#" >today's motivation quote</a></div>
+            <div class="dtp1"><a href="#header" >Dashboard</a></div>
+            <div class="dtp2"><a href="#habitt" >habits </a></div>
+            <div class="dtp3"><a href="#water" >water </a></div>
+            <div class="dtp5"><a href="#sleepp" >sleep </a></div>
+            <div class="dtp6"><a href="#quotes" > quote</a></div>
             <div class="dtp7"><a href="#" >pomodoro timer</a></div>
             <div class="dtp8"><a href="#" >weekly progress summary</a></div>
         </div>
@@ -33,9 +32,9 @@
         <div class="main1">
             <div class="name">WELCOME BACK MANISH!!</div>
                 <div class="section">
-                    <div class="motivation"><h2 class="quote">Loading quote...</h2>
+                    <div id="quotes" class="motivation"><h2 class="quote">Loading quote...</h2>
                         <p class="author"></p></div>
-                    <div class="date"><h2>13 SEP 2026</div></h2>
+                    <div ><h2 class="date"></h2></div>
                 </div>
         </div>
         
@@ -52,7 +51,7 @@
                 </div>
             </div>
             <div class="c1" >
-                <h3>Habit Tracker</h3>
+                <h3 id="habitt">Habit Tracker</h3>
                 <input type="text" id="add_habit" placeholder="Add Habit">
                 <button onclick="addhabit()">ADD</button><br>
                 <div class="habit_list">
@@ -63,15 +62,32 @@
                 </div>
             </div>
             <div class="c1" >
-                <h3>Water Intake</h3>
+                <h3 id="water">Water Intake</h3>
                 <p class="water_intak">0/4L</p>
                 <button class="water_add_btn" >+250ml</button>
             </div>
-            <div class="c1" ><h3>Calories</h3></div>
-            <div class="c1" ><h3></h3></div>
-            <div class="c1" ><h3></h3></div>
-            <div class="c1" ><h3></h3></div>
-            <div class="c1" ><h3></h3></div>
+            <div class="c1" >
+                <section class="sleep_card">
+                    <div class="sleep-card" id="sleepp">
+                        <h3>Sleep Tracker</h3>
+                        <input type="time" id="bedtime">
+                        <input type="time" id="waketime">
+                        <p>Duration: <span id="sleep-duration">0 hrs</span></p>
+                        <button id="calcsleepbtn">Calculate</button>
+                    </div>
+                    <div class="timer-card">
+                        <h3>Timer</h3>
+                        <div class="timer-display" id="timer">
+                            <div class="time_box"><span id="minutes">25</span>:<span id="seconds">00</span></div></div>
+                        <div class="btn_box">
+                            <button id="start-timer">start</button>
+                            <button id="pause">Pause</button>
+                            <button id="reset">Reset</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+    
         </div>
     </div>
 <script src="script.js"></script>

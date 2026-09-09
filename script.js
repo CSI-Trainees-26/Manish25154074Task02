@@ -5,6 +5,13 @@ function addtask() {
     if(inputTask.value.trim()===""){
         return;
     }
+    let checkBox=document.createElement("input");
+    checkBox.type="checkbox";
+    checkBox.onclick=function(){
+        li.remove();
+        completedList.insertAdjacentElement("afterbegin",li);
+        checkBox.disabled=true;
+    }
     let li = document.createElement("li");
     li.textContent = inputTask.value;
     li.draggable=true;
@@ -15,17 +22,11 @@ function addtask() {
     delBtn.style.padding="0rem";
     delBtn.style.margin="0.5rem";
     delBtn.style.fontSize="smaller" ;
-    delBtn.textContent="X";
+    delBtn.textContent="Delete";
     delBtn.onclick=function(){
         li.remove();
     }
-    let checkBox=document.createElement("input");
-    checkBox.type="checkbox";
-    checkBox.onclick=function(){
-        li.remove();
-        completedList.insertAdjacentElement("afterbegin",li);
-        checkBox.disabled=true;
-    }
+    
     let editBtn = document.createElement("button");
     editBtn.textContent = "Edit";
     editBtn.onclick = function () {
@@ -35,9 +36,9 @@ function addtask() {
     }
     li.firstChild.textContent = newText;
     }
+    li.appendChild(checkBox);
     li.appendChild(delBtn);
     li.appendChild(editBtn);
-    li.appendChild(checkBox);
     taskList.appendChild(li);
     inputTask.value = ""; 
 }
@@ -74,7 +75,7 @@ function addhabit(){
         li.firstChild.textContent=editText;
     }
     let delHabit=document.createElement("button");
-    delHabit.textContent="X";
+    delHabit.textContent="Delete";
     delHabit.style.padding="0rem";
     delHabit.style.margin="0.5rem";
     delHabit.style.fontSize="smaller" ;
@@ -111,14 +112,14 @@ btn.addEventListener("click",function(){
     if(totalWater===4000){
         totalWater=0.00;
         waterIndicator.innerHTML="Completed";
-        waterIndicator.style.color="#22a846";
+        waterIndicator.style.color="#30ed63";
     }else
     {
         if(totalWater<3000){
             waterIndicator.style.color="red";
         }
         else if(totalWater===3000){ 
-            waterIndicator.style.color="#ffc107";
+            waterIndicator.style.color="#fbfb51";
         }
         waterIndicator.textContent=`${liter} /4L`;
     }
@@ -138,3 +139,75 @@ fetch("https://www.drivebird.com/api/quotes/random")
         console.log("Error:", error);
     });
 
+let today = new Date();
+let options = {day: "numeric",month: "long",year: "numeric"
+};
+document.querySelector(".date").textContent =today.toLocaleDateString("en-IN", options);
+
+let sleepBtn = document.getElementById("calcsleepbtn");
+sleepBtn.addEventListener('click' , ()=>{
+    console.log("click")
+    let bedtime = document.getElementById("bedtime").value;
+    let waketime = document.getElementById("waketime").value;
+    if(!bedtime || !waketime){
+        document.getElementById("sleep-duration").innerText = `Enter both the time first`;
+        return;
+    }
+    let time1 = bedtime.split(":");
+    let time2 = waketime.split(":");
+    let firsttime = Number(time1[0]) * 60 + Number(time1[1]);
+    let secondtime = Number(time2[0]*60 + Number(time2[1]));
+
+    let time = secondtime - firsttime;
+    if(time >= 0){
+        document.getElementById("sleep-duration").innerText = `${Math.floor(time/60)}hrs and ${time%60} min`;
+
+    }else{
+        time += 24*60;
+        document.getElementById("sleep-duration").innerText = `${Math.floor(time/60)}hrs and ${time%60} min`;
+    }
+});
+let timerCard = document.getElementById("timer");
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
+let startTimer = document.getElementById("start-timer");
+let pause = document.getElementById("pause");
+let reset = document.getElementById("reset");
+
+let time = 1500;
+let timer = null;
+function start(){
+    clearInterval(timer);
+    timer = setInterval(()=>{ 
+    if(time > 0){
+        time = time - 1;
+        let min = Math.floor(time / 60);
+        let sec = Math.floor(time % 60);
+        if(min < 10){
+            minutes.innerText = "0${min}";
+        }else{
+            minutes.innerText = min;
+        }
+
+        if(sec < 10){
+            seconds.innerText = "0${sec}";
+        }else{
+            seconds.innerText = sec;
+        }
+    }else{
+        clearInterval(timer);
+    }
+    },1000);
+}
+startTimer.addEventListener('click' , start);
+pause.addEventListener('click' , ()=>{
+    clearInterval(timer);
+})
+
+reset.addEventListener('click' , ()=>{
+    time = 1500;
+    minutes.innerText = "25";
+    seconds.innerText = "00";
+    clearInterval(timer);
+    timer = null;
+})
