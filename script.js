@@ -100,3 +100,41 @@ function addhabit(){
     habitList.appendChild(li);
     inputhabit.value="";
 }
+
+let totalWater=0;
+let waterIndicator=document.querySelector(".water_intak");
+let btn=document.querySelector(".water_add_btn");
+waterIndicator.style.color="red";
+btn.addEventListener("click",function(){
+    totalWater=totalWater+250;
+    let liter=(totalWater/1000).toFixed(2);
+    if(totalWater===4000){
+        totalWater=0.00;
+        waterIndicator.innerHTML="Completed";
+        waterIndicator.style.color="#22a846";
+    }else
+    {
+        if(totalWater<3000){
+            waterIndicator.style.color="red";
+        }
+        else if(totalWater===3000){ 
+            waterIndicator.style.color="#ffc107";
+        }
+        waterIndicator.textContent=`${liter} /4L`;
+    }
+});
+
+fetch("https://www.drivebird.com/api/quotes/random")
+    .then(response => response.json())
+    .then(data => {
+        let quote = data.data[0];
+        document.querySelector(".quote").textContent =
+            `"${quote.quote}"`;
+
+        document.querySelector(".author").textContent =
+            `— ${quote.author}`;
+    })
+    .catch(error => {
+        console.log("Error:", error);
+    });
+

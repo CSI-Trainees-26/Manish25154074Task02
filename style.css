@@ -50,7 +50,7 @@ body{
 }
 .dtp1 a,.dtp2 a,.dtp3 a,.dtp4 a,.dtp5 a,.dtp6 a,.dtp7 a,.dtp8 a{
     text-decoration:none;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .dtp1,.dtp2,.dtp3,.dtp4,.dtp5,.dtp6,.dtp7,.dtp8{
     padding: 0.4rem;
@@ -77,7 +77,7 @@ body{
     border-bottom:2px solid #141414;
 }
 
-.txt,.srch{
+.txt{
     margin: 1rem;
 }
 .txt1{
@@ -131,16 +131,14 @@ body{
 .c1 {
     width: 90%;
     margin: auto;
-    background-color: aliceblue;
+    background-color: rgb(252, 252, 252);
     padding:1rem ;
     border-radius: 40px;
     transition: transform 0.3s ease;
+    padding-left: 2rem;
 }
 .c1:hover{
     transform: translateY(-2px);
-}
-.c1 h3{
-    padding-left: 0.7rem;
 }
 .pending_list,.habit_pending_list{
     background-color:aliceblue;
@@ -158,4 +156,12 @@ body{
 }
 .pending ,.completed{
     width:300px;
+}
+.c1 p{
+    margin-top: 0;
+    font-size: x-large;
+    font-weight: 700;
+}
+.water_add_btn{
+    border-radius: 20px;
 }
