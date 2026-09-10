@@ -7,6 +7,7 @@ function addtask() {
     }
     let checkBox=document.createElement("input");
     checkBox.type="checkbox";
+    checkBox.style.marginLeft="20px";
     checkBox.onclick=function(){
         li.remove();
         completedList.insertAdjacentElement("afterbegin",li);
@@ -42,6 +43,7 @@ function addtask() {
     taskList.appendChild(li);
     inputTask.value = ""; 
 }
+
 completedList.ondragover=function(comp){
     comp.preventDefault();
 }
@@ -210,4 +212,22 @@ reset.addEventListener('click' , ()=>{
     seconds.innerText = "00";
     clearInterval(timer);
     timer = null;
-})
+});
+
+let boxes=document.querySelectorAll(".box");
+let count=0;
+let streak=0;
+let streakCount=document.querySelector(".streak_count");
+boxes.forEach(function(box){
+box.addEventListener("click", function () {
+  const done = box.style.backgroundColor === "rgb(22, 181, 22)";
+  if (done) {
+    box.style.backgroundColor = "gray";
+    count--;
+  } else {
+     box.style.backgroundColor = "rgb(22, 181, 22)"
+    count++;
+  }
+  streakCount.textContent = Math.floor(count / 7);
+});
+});
