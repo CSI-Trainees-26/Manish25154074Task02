@@ -214,6 +214,13 @@ reset.addEventListener('click' , ()=>{
     timer = null;
 });
 
+let graph=document.querySelector(".container1");
+for(let i=0;i<365;i++){
+    let dayBox=document.createElement("div");
+    dayBox.classList.add("box");
+    graph.appendChild(dayBox);
+}
+
 let boxes=document.querySelectorAll(".box");
 let count=0;
 let streak=0;
@@ -222,7 +229,7 @@ boxes.forEach(function(box){
 box.addEventListener("click", function () {
   const done = box.style.backgroundColor === "rgb(22, 181, 22)";
   if (done) {
-    box.style.backgroundColor = "gray";
+    box.style.backgroundColor = "rgb(41, 39, 39)";
     count--;
   } else {
      box.style.backgroundColor = "rgb(22, 181, 22)"
@@ -231,3 +238,4 @@ box.addEventListener("click", function () {
   streakCount.textContent = Math.floor(count / 7);
 });
 });
+
